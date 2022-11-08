@@ -195,6 +195,11 @@ console.log(z); // Output: 4
 
 ```let powerLevel = 9001;```
 
+Solution:
+
+![Screenshot_153](https://user-images.githubusercontent.com/29931071/200642224-03d49839-d475-43ff-bf58-fab13cdeb71c.png)
+
+
 
 # The Increment and Decrement Operator
 
