@@ -1,4 +1,4 @@
-# Javascript_2 Variables
+# Javascript_2 Variables and Conditionals
 
 
 # Variables
@@ -307,4 +307,540 @@ console.log(typeof unknown2); // Output: number
 const unknown3 = true; 
 console.log(typeof unknown3); // Output: boolean
 ```
+
+
+
+# Conditional statements
+
+
+In life, we make decisions based on circumstances. Think of an everyday decision as mundane as falling asleep — if we are tired, we go to bed, otherwise, we wake up and start our day.
+
+These if-else decisions can be modeled in code by creating conditional statements. A conditional statement checks a specific condition(s) and performs a task based on the condition(s).
+
+In this lesson, we will explore how programs make decisions by evaluating conditions and introduce logic into our code!
+
+We’ll be covering the following concepts:
+
+- if, else if, and else statements
+- comparison operators
+- logical operators
+- truthy vs falsy values
+- ternary operators
+- switch statement
+
+
+# If statement
+
+If Statement
+We often perform a task based on a condition. For example, if the weather is nice today, then we will go outside. If the alarm clock rings, then we’ll shut it off. If we’re tired, then we’ll go to sleep.
+
+In programming, we can also perform a task based on a condition using an if statement:
+
+```
+if (true) {
+  console.log('This message will print!'); 
+}
+// Prints: This message will print!
+```
+
+Notice in the example above, we have an if statement. The if statement is composed of:
+
+- The if keyword followed by a set of parentheses ```()``` which is followed by a code block, or block statement, indicated by a set of curly braces ```{}```.
+- Inside the parentheses (), a condition is provided that evaluates to true or false.
+- If the condition evaluates to true, the code inside the curly braces {} runs, or executes.
+- If the condition evaluates to false, the block won’t execute.
+
+Let’s make an if statement.
+
+## Class work
+
+1. Using the let keyword, declare a variable named sale. Assign the value true to it.
+
+2. Now create an if statement. Provide the if statement a condition of sale.
+
+Inside the code block of the if statement, console.log() the string 'Time to buy!'.
+
+Output:
+
+![Screenshot_157](https://user-images.githubusercontent.com/29931071/200800450-ec657871-695f-49b8-bbd8-94101c6349f6.png)
+
+
+
+# If...Else Statements
+
+In the previous exercise, we used an if statement that checked a condition to decide whether or not to run a block of code. In many cases, we’ll have code we want to run if our condition evaluates to false.
+
+If we wanted to add some default behavior to the if statement, we can add an else statement to run a block of code when the condition evaluates to false. Take a look at the inclusion of an else statement:
+
+```
+if (false) {
+  console.log('The code in this block will not run.');
+} else {
+  console.log('But the code in this block will!');
+}
+ 
+// Prints: But the code in this block will!
+```
+
+An else statement must be paired with an if statement, and together they are referred to as an if...else statement.
+
+
+## Class work
+
+Add an else statement to the existing if statement. Inside the code block of the else statement, console.log() the string 'Time to wait for a sale.'
+
+Output:
+
+![Screenshot_158](https://user-images.githubusercontent.com/29931071/200801079-3301463a-030f-41c6-83c5-2c8a89ed1385.png)
+
+
+
+# Comparison Operators
+
+When writing conditional statements, sometimes we need to use different types of operators to compare values. These operators are called comparison operators.
+
+Here is a list of some handy comparison operators and their syntax:
+
+- Less than: <
+- Greater than: >
+- Less than or equal to: <=
+- Greater than or equal to: >=
+- Is equal to: ===
+- Is not equal to: !==
+
+We can also use comparison operators on different data types like strings:
+
+```
+'apples' === 'oranges' // false
+```
+
+In the example above, we’re using the identity operator ```(===)``` to check if the string 'apples' is the same as the string 'oranges'. Since the two strings are not the same, the comparison statement evaluates to false.
+
+All comparison statements evaluate to either TRUE or FALSE and are made up of:
+
+- Two values that will be compared.
+- An operator that separates the values and compares them accordingly (>, <, <=,>=,===,!==).
+
+Let’s practice using these comparison operators!
+
+## Class work
+
+1. Using let, create a variable named hungerLevel and set it equal to 7.
+
+2. Write an if...else statement using a comparison operator. The condition should check if hungerLevel is greater than 7. If so, the conditional statement should log, 'Time to eat!'. Otherwise, it should log 'We can eat later!'.
+
+Output:
+
+![Screenshot_159](https://user-images.githubusercontent.com/29931071/200802124-0754d504-4a09-422a-bd38-e0fa369bd230.png)
+
+
+# Logical Operators
+
+Working with conditionals means that we will be using booleans, true or false values. 
+
+In JavaScript, there are operators that work with boolean values known as logical operators. We can use logical operators to add more sophisticated logic to our conditionals. There are three logical operators:
+
+- the and operator (&&)
+- the or operator (||)
+- the not operator, otherwise known as the bang operator (!)
+
+When we use the && operator, we are checking that two things are true:
+
+```
+if (stopLight === 'green' && pedestrians === 0) {
+  console.log('Go!');
+} else {
+  console.log('Stop');
+}
+```
+
+If we only care about either condition being true, we can use the || operator:
+
+```
+if (day === 'Saturday' || day === 'Sunday') {
+  console.log('Enjoy the weekend!');
+} else {
+  console.log('Do some work.');
+}
+```
+
+The ! not operator reverses, or negates, the value of a boolean:
+
+```
+let excited = true;
+console.log(!excited); // Prints false
+ 
+let sleepy = false;
+console.log(!sleepy); // Prints true
+```
+
+## Class work
+
+In app.js there are two variables mood and tirednessLevel.
+
+```
+let mood = 'sleepy';
+let tirednessLevel = 6;
+```
+
+Let’s create an if...else statement that checks if mood is 'sleepy' and tirednessLevel is greater than 8.
+
+If both conditions evaluate to true, then console.log() the string 'time to sleep'. Otherwise, we should console.log() 'not bed time yet'.
+
+
+Output:
+
+![Screenshot_160](https://user-images.githubusercontent.com/29931071/200803016-4cb4011a-1679-48c9-8c9d-2f9323cceb4f.png)
+
+
+After you press “Run”, play around with the || operator and the ! operator! What happens if you negate the value of the entire statement with ! and switch to || instead of &&?
+
+
+
+# Truthy and Falsy
+
+Let’s consider how non-boolean data types, like strings or numbers, are evaluated when checked inside a condition.
+
+Sometimes, you’ll want to check if a variable exists and you won’t necessarily want it to equal a specific value — you’ll only check to see if the variable has been assigned a value.
+
+Here’s an example:
+
+```
+let myVariable = 'I Exist!';
+ 
+if (myVariable) {
+   console.log(myVariable)
+} else {
+   console.log('The variable does not exist.')
+}
+```
+
+The code block in the if statement will run because myVariable has a truthy value; even though the value of myVariable is not explicitly the value true, when used in a boolean or conditional context, it evaluates to true because it has been assigned a non-falsy value.
+
+So which values are falsy— or evaluate to false when checked as a condition? The list of falsy values includes:
+
+- 0
+- Empty strings like "" or ''
+- null which represent when there is no value at all
+- undefined which represent when a declared variable lacks a value
+- NaN, or Not a Number
+
+Here’s an example with numbers:
+
+```
+let numberOfApples = 0;
+ 
+if (numberOfApples){
+   console.log('Let us eat apples!');
+} else {
+   console.log('No apples left!');
+}
+ 
+// Prints 'No apples left!'
+```
+
+## Class work
+
+```
+let wordCount;
+
+if (wordCount) {
+  console.log("Great! You've started your work!");
+} else {
+  console.log('Better get to work!');
+}
+
+
+let favoritePhrase;
+
+if (favoritePhrase) {
+  console.log("This string doesn't seem to be empty.");
+} else {
+  console.log('This string is definitely empty.');
+}
+```
+
+1. Change the value of wordCount so that it is truthy. This value should still be a number.
+
+After you make this change and run your code, 'Great! You've started your work!' should log to the console.
+
+2. Change the value of favoritePhrase so that it is still a string but falsy.
+
+After you make this change and run your code, 'This string is definitely empty.' should log to the console.
+
+Output:
+
+![Screenshot_161](https://user-images.githubusercontent.com/29931071/200804089-dd163927-587e-46be-b221-24338ab03d35.png)
+
+
+# Truthy and Falsy Assignment
+
+Truthy and falsy evaluations open a world of short-hand possibilities!
+
+Say you have a website and want to take a user’s username to make a personalized greeting. Sometimes, the user does not have an account, making the username variable falsy. The code below checks if username is defined and assigns a default string if it is not:
+
+```
+let username = '';
+let defaultName;
+ 
+if (username) {
+  defaultName = username;
+} else {
+  defaultName = 'Stranger';
+}
+ 
+console.log(defaultName); // Prints: Stranger
+```
+
+If you combine your knowledge of logical operators you can use a short-hand for the code above. In a boolean condition, JavaScript assigns the truthy value to a variable if you use the || operator in your assignment:
+
+```
+let username = '';
+let defaultName = username || 'Stranger';
+ 
+console.log(defaultName); // Prints: Stranger
+```
+
+Because || or statements check the left-hand condition first, the variable defaultName will be assigned the actual value of username if it is truthy, and it will be assigned the value of 'Stranger' if username is falsy. 
+
+This concept is also referred to as short-circuit evaluation.
+
+
+## Class work
+
+```
+let tool = 'marker';
+
+// Use short circuit evaluation to assign  writingUtensil variable below:
+let writingUtensil;
+```
+
+1. Let’s use short-circuit evaluation to assign a value to writingUtensil. Do not edit tool yet, we’ll return to tool in the next step.
+
+Assign to writingUtensil the value of tool and if tool is falsy, assign a default value of 'pen'.
+
+2. Notice that text 'The pen is mightier than the sword' logged to the console. Which means the value of writingUtensil is 'pen'.
+
+What if we reassign the value of tool to 'marker'. Let’s see what happens to the value of writingUtensil.
+
+3. Now make tool falsy and see the difference.
+
+
+Output:
+
+![Screenshot_162](https://user-images.githubusercontent.com/29931071/200806129-3c5a9538-06d5-4d3b-802e-28874a0ce835.png)
+
+![Screenshot_163](https://user-images.githubusercontent.com/29931071/200806272-bce76c41-6de0-4e87-9364-f087b66ffdaa.png)
+
+
+# Ternary Operator
+
+In the spirit of using short-hand syntax, we can use a ternary operator to simplify an if...else statement.
+
+Take a look at the if...else statement example:
+
+```
+let isNightTime = true;
+ 
+if (isNightTime) {
+  console.log('Turn on the lights!');
+} else {
+  console.log('Turn off the lights!');
+}
+```
+
+We can use a ternary operator to perform the same functionality:
+
+```
+isNightTime ? console.log('Turn on the lights!') : console.log('Turn off the lights!');
+```
+
+In the example above:
+
+- The condition, isNightTime, is provided before the ?.
+- Two expressions follow the ? and are separated by a colon :.
+- If the condition evaluates to true, the first expression executes.
+- If the condition evaluates to false, the second expression executes.
+
+
+## Class work
+
+1. 
+
+```
+let isLocked = false;
+
+if (isLocked) {
+  console.log('You will need a key to open the door.');
+} else {
+  console.log('You will not need a key to open the door.');
+}
+```
+
+Refactor, or edit, the first if...else block to use a ternary operator.
+
+Output:
+
+![Screenshot_164](https://user-images.githubusercontent.com/29931071/200807974-b56f57d2-9ff6-4cc6-acab-d0fa584cc299.png)
+
+
+2.
+
+```
+let isCorrect = true;
+
+if (isCorrect) {
+  console.log('Correct!');
+} else {
+  console.log('Incorrect!');
+}
+```
+
+Refactor the second if...else block to use a ternary operator.
+
+Output:
+
+![Screenshot_165](https://user-images.githubusercontent.com/29931071/200808483-6e0abcd0-8e56-4f63-8708-04cc1adae732.png)
+
+
+
+# Else If Statements
+
+We can add more conditions to our if...else with an else if statement. The else if statement allows for more than two possible outcomes. You can add as many else if statements as you’d like, to make more complex conditionals!
+
+The else if statement always comes after the if statement and before the else statement. The else if statement also takes a condition. Let’s take a look at the syntax:
+
+```
+let stopLight = 'yellow';
+ 
+if (stopLight === 'red') {
+  console.log('Stop!');
+} else if (stopLight === 'yellow') {
+  console.log('Slow down.');
+} else if (stopLight === 'green') {
+  console.log('Go!');
+} else {
+  console.log('Caution, unknown!');
+}
+```
+
+The ```else``` if statements allow you to have multiple possible outcomes. if/else if/else statements are read from top to bottom, so the first condition that evaluates to true from the top to bottom is the block that gets executed.
+
+
+## Class work
+
+```
+let season = 'summer';
+
+if (season === 'spring') {
+  console.log('It\'s spring! The trees are budding!');
+} else {
+  console.log('Invalid season.');
+}
+```
+
+1. In app.js there is already an if...else statement in place. Let’s add an else if statement that checks if season is equal to 'winter'.
+
+Inside the code block of the else if statement, add a console.log() that prints the string 'It\'s winter! Everything is covered in snow.'.
+
+Output:
+
+![Screenshot_166](https://user-images.githubusercontent.com/29931071/200809985-9cb3ce8e-352c-4d1c-9b35-bde7d7061389.png)
+
+
+2. Add another else if statement that checks if season is equal to 'fall'.
+
+Inside the code block of the else if statement you just created, add a console.log() that prints the string 'It\'s fall! Leaves are falling!'.
+
+Output:
+
+![Screenshot_167](https://user-images.githubusercontent.com/29931071/200810648-8891510d-bb03-41d8-aa82-bcd5af97cdef.png)
+
+
+
+# The switch keyword
+
+else if statements are a great tool if we need to check multiple conditions. In programming, we often find ourselves needing to check multiple values and handling each of them differently. For example:
+
+```
+let groceryItem = 'papaya';
+ 
+if (groceryItem === 'tomato') {
+  console.log('Tomatoes are $0.49');
+} else if (groceryItem === 'papaya'){
+  console.log('Papayas are $1.29');
+} else {
+  console.log('Invalid item');
+}
+```
+
+A switch statement provides an alternative syntax that is easier to read and write. A switch statement looks like this:
+
+```
+let groceryItem = 'papaya';
+ 
+switch (groceryItem) {
+  case 'tomato':
+    console.log('Tomatoes are $0.49');
+    break;
+  case 'lime':
+    console.log('Limes are $1.49');
+    break;
+  case 'papaya':
+    console.log('Papayas are $1.29');
+    break;
+  default:
+    console.log('Invalid item');
+    break;
+}
+ 
+// Prints 'Papayas are $1.29'
+```
+
+
+## Class work
+
+```
+let athleteFinalPosition = 'first place';
+```
+
+
+1. Let’s write a switch statement to decide what medal to award an athlete.
+
+athleteFinalPosition is already defined at the top of app.js. So start by writing a switch statement with athleteFinalPosition as its expression.
+
+Output:
+
+```
+let athleteFinalPosition = 'first place';
+
+switch (athleteFinalPosition) {
+  
+}
+```
+
+2. Inside the switch statement, add three cases:
+
+The first case checks for the value 'first place'
+If the expression’s value matches the value of the case then console.log() the string 'You get the gold medal!'
+The second case checks for the value 'second place'
+If the expression’s value matches the value of the case then console.log() the string 'You get the silver medal!'
+The third case checks for the value 'third place'
+If the expression’s value matches the value of the case then console.log() the string 'You get the bronze medal!'
+Remember to add a break after each console.log().
+
+
+Output:
+
+![Screenshot_168](https://user-images.githubusercontent.com/29931071/200812350-88ad8a65-b242-4b85-bcd4-83ba1545d334.png)
+
+3. Now, add a default statement at the end of the switch that uses console.log() to print 'No medal awarded.'.
+
+If athleteFinalPosition does not equal any value of our cases, then the string 'No medal awarded.' is logged to the console.
+
+Remember to add the break keyword at the end of the default case.
+
+Output:
+
+![Screenshot_169](https://user-images.githubusercontent.com/29931071/200812800-682dd6cf-5129-4a3d-88c3-7dbadfa44a12.png)
 
